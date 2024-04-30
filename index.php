@@ -150,7 +150,50 @@ function printPm($db) {
         } 
     }
 }
+###################################### end snack 6 ########################################
 
+// snack 7 here
+$students = [
+       [
+           'name' => 'Nicola',
+           'lastname' => 'Filannino',
+           'voti' => [
+            'storia' => '7',
+            'matematica' => '6',
+           ]
+       ],
+       [
+           'name' => 'Wojtech',
+           'lastname' => 'Potoniec',
+           'voti' => [
+            'storia' => '6',
+            'matematica' => '10',
+           ]
+        ],
+        [
+            'name' => 'Angelo',
+            'lastname' => 'Ciulla',
+            'voti' => [
+             'storia' => '8',
+             'matematica' => '9',
+            ]
+        ],
+        [
+        'name' => 'Samuele',
+            'lastname' => 'Scavello',
+            'voti' => [
+             'storia' => '8',
+             'matematica' => '10',
+        ]
+    ]
+];
+
+function printStudents($students) {
+    foreach ($students as $student) {
+        $media = array_sum($student['voti']) / count($student['voti']);
+        echo $student['name'] . ' ' . $student['lastname'] . ' ' . $media . '<br>';
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -158,19 +201,18 @@ function printPm($db) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
     <link rel="stylesheet" href="css/style.css">
-
     <title>
         PhP Snacks 1
     </title>
 </head>
 
-
 <body>
-    <h1 class="text-center"> PhP Snacks </h1>
+    <h1 class="text-center"> 
+        PhP Snacks 
+    </h1>
+
     <!-- Snack 1 -->
     <div class="container text-center" >
         <h2>
@@ -258,20 +300,36 @@ function printPm($db) {
     <!-- snack 6 -->
     <div class="container text-center pb-5">
         <h2> Snack 6 </h2>
+        <p>
+        Stampiamo il nostro array mettendo gli insegnanti in un rettangolo grigio e i PM in un rettangolo verde.
+        </p>
         <div class="d-flex justify-content-center">
-            <div class="box red m-2">
+            <div class="box red m-2 p-3">
                 <?php
                 printTeachers($db); 
                 ?>
             </div>
 
-            <div class="box green m-2">
+            <div class="box green m-2 p-3">
                 <?php 
                 printPm($db); 
                 ?>
             </div>
         </div>
     </div>
-    
+
+    <!-- snack 7 -->
+    <div class="container text-center">
+        <h2> Snack 7 </h2>
+        <p>
+        Creare un array contenente qualche alunno di un'ipotetica classe. Ogni alunno avrà Nome, Cognome e un array contenente i suoi voti scolastici. Stampare Nome, Cognome e la media dei voti di ogni alunno.
+        </p>
+        <p>
+            <?php 
+            printStudents($students);
+            ?>
+        </p>
+
+    </div>
 </body>
 </html>
