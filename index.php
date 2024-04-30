@@ -32,6 +32,7 @@ function printMatches($teamMatches) {
         echo '<h5>' . $key . '</h5>' . $value['homeTeam'] . ' - ' . $value['guestTeam'] . '<br>' . ' ' . $value['homeGoals'] . ' - ' . $value['guestGoals'];
     }
 }
+######################################## end snack 1 ########################################
 
 // snack 3 array
 $posts = [
@@ -72,6 +73,27 @@ $posts = [
         ]
     ],
 ];
+// calling the function that prints the posts
+function printPosts($posts) {
+    foreach ($posts as $key => $value) {
+        echo '<h5>' . $key . '</h5>';
+        foreach ($value as $post) {
+            echo '<p>' . $post['title'] . '<br>' . $post['author'] . '<br>' . $post['text'] . '</p>';
+        }
+    }
+}
+###################################### end snack 3 ########################################
+
+function getArrayOfIntegers($min, $max, $itemsArray) {
+    $numbersArray = [];
+    while (count($numbersArray) < $itemsArray) {
+        $randomNumber = rand($min, $max);
+        if (!in_array($randomNumber, $numbersArray)) {
+            $numbersArray[] = $randomNumber;
+        }
+}
+    return $numbersArray;
+}
 
 ?>
 
@@ -90,6 +112,7 @@ $posts = [
 
 
 <body>
+
     <!-- Snack 1 -->
     <div class="container text-center" >
         <h1>
@@ -103,6 +126,7 @@ $posts = [
             <?php printMatches($teamMatches) ?>
         </p>
     </div>
+
     <!-- Snack 2 -->
     <div class="container text-center w-50">
         <h2> Snack 2 </h2>
@@ -129,14 +153,27 @@ $posts = [
                 }
             ?>
     </div>
+
     <!-- Snack 3 -->
-    <div>
+    <div class="container text-center">
         <h2> Snack 3 </h2>
         <p>
-        Creare un array di array. Ogni array figlio avrà come chiave una data in questo formato: DD-MM-YYYY es 01-01-2007 e come valore un array di post associati a quella data. Stampare ogni data con i relativi post.
+         Creare un array di array. Ogni array figlio avrà come chiave una data in questo formato: DD-MM-YYYY es 01-01-2007 e come valore un array di post associati a quella data. Stampare ogni data con i relativi post.
         </p>
+        <br>
+        <?php printPosts($posts) ?>
+
     </div>
 
+    <!-- snack 4 -->
+    <div class="container text-center">
+        <h2> Snack 4 </h2>
+        <p>
+        Creare un array con 15 numeri casuali, tenendo conto che l'array non dovrà contenere lo stesso numero più di una volta
+        </p>
+        <br>
+        <?php  print_r(getArrayOfIntegers(1, 100, 15))?>
+    </div>
     
 </body>
 </html>
