@@ -97,6 +97,10 @@ function getArrayOfIntegers($min, $max, $itemsArray) {
     return $numbersArray;
 }
 
+$paragraphs = 'In un videogioco come Fallout le scelte del videogiocatore sono fondamentali: condizionano la creazione del personaggio, la sua indole, le quest secondarie e quella principale; possono determinare addirittura quali NPC incontrerà sul suo percorso. Nella serie tv, disponibile su Prime Video, questa cosa non c\'è. Ed è normale. Ed è anche giusto. Ma Graham Wagner e Geneva Robertson-Dworet, i due creatori-sceneggiatori, sono riusciti a costruire un mondo coerente, non così diverso da quello della saga di Bethesda, e a filare delle trame verticali capaci di intrecciarsi proprio come se ci fosse qualcuno, davanti alla tv, a prendere delle decisioni.';
+
+$paragraph = explode('. ', $paragraphs);
+
 ?>
 
 <!DOCTYPE html>
@@ -180,6 +184,23 @@ function getArrayOfIntegers($min, $max, $itemsArray) {
             echo $number . '  ';
         }
         ?>
+    </div>
+
+    <!-- snack 5 -->
+    <div class="container text-center">
+        <h2> Snack 5 </h2>
+        <p>
+        Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi. Ogni punto un nuovo paragrafo.
+        </p>
+
+        <p>
+        <?php 
+        for ($i = 0; $i < count($paragraph); $i++) {
+            echo $paragraph[$i];
+        }
+        ?> 
+        
+        </p>
     </div>
     
 </body>
