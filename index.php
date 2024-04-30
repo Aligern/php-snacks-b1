@@ -96,10 +96,60 @@ function getArrayOfIntegers($min, $max, $itemsArray) {
 }
     return $numbersArray;
 }
+###################################### end snack 4 ########################################
 
+// snack 5 here
 $paragraphs = 'In un videogioco come Fallout le scelte del videogiocatore sono fondamentali: condizionano la creazione del personaggio, la sua indole, le quest secondarie e quella principale; possono determinare addirittura quali NPC incontrerà sul suo percorso. Nella serie tv, disponibile su Prime Video, questa cosa non c\'è. Ed è normale. Ed è anche giusto. Ma Graham Wagner e Geneva Robertson-Dworet, i due creatori-sceneggiatori, sono riusciti a costruire un mondo coerente, non così diverso da quello della saga di Bethesda, e a filare delle trame verticali capaci di intrecciarsi proprio come se ci fosse qualcuno, davanti alla tv, a prendere delle decisioni.';
 
 $paragraph = explode('. ', $paragraphs);
+
+###################################### end snack 5 ########################################
+
+// snack 6 array
+$db = [
+    'teachers' => [
+        [
+            'name' => 'Michele',
+            'lastname' => 'Papagni'
+        ],
+        [
+            'name' => 'Fabio',
+            'lastname' => 'Forghieri'
+        ]
+    ],
+    'pm' => [
+        [
+            'name' => 'Roberto',
+            'lastname' => 'Marazzini'
+        ],
+        [
+            'name' => 'Federico',
+            'lastname' => 'Pellegrini'
+        ]
+    ]
+];
+
+function printTeachers($db) {
+    foreach ($db as $key => $value) {
+        if ($key == 'teachers') {
+            echo '<h3>' . $key . '</h3>';
+            foreach ($value as $teacher) {
+                echo $teacher['name'] . ' ' . $teacher['lastname'] . '<br>';
+            }
+        } 
+    }
+}
+
+function printPm($db) {
+    foreach ($db as $key => $value) {
+        if ($key == 'pm') {
+            echo '<h3>' . $key . '</h3>';
+            foreach ($value as $pm) {
+                echo $pm['name'] . ' ' . $pm['lastname'] . '<br>';
+            }
+        } 
+    }
+}
 
 ?>
 
@@ -111,6 +161,8 @@ $paragraph = explode('. ', $paragraphs);
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="css/style.css">
+
     <title>
         PhP Snacks 1
     </title>
@@ -118,12 +170,12 @@ $paragraph = explode('. ', $paragraphs);
 
 
 <body>
-
+    <h1 class="text-center"> PhP Snacks </h1>
     <!-- Snack 1 -->
     <div class="container text-center" >
-        <h1>
+        <h2>
             Snack 1
-        </h1>
+        </h2>
         
         <p>
         Creiamo un array contenente le partite di basket di un' ipotetica tappa del calendario. Ogni array avrà una squadra di casa e una squadra ospite, punti fatti dalla squadra di casa e punti fatti dalla squadra ospite.
@@ -201,6 +253,24 @@ $paragraph = explode('. ', $paragraphs);
         ?> 
         
         </p>
+    </div>
+
+    <!-- snack 6 -->
+    <div class="container text-center pb-5">
+        <h2> Snack 6 </h2>
+        <div class="d-flex justify-content-center">
+            <div class="box red m-2">
+                <?php
+                printTeachers($db); 
+                ?>
+            </div>
+
+            <div class="box green m-2">
+                <?php 
+                printPm($db); 
+                ?>
+            </div>
+        </div>
     </div>
     
 </body>
