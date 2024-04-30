@@ -84,6 +84,8 @@ function printPosts($posts) {
 }
 ###################################### end snack 3 ########################################
 
+
+// snack 4 function
 function getArrayOfIntegers($min, $max, $itemsArray) {
     $numbersArray = [];
     while (count($numbersArray) < $itemsArray) {
@@ -177,7 +179,6 @@ function getArrayOfIntegers($min, $max, $itemsArray) {
         foreach ($randomNumbers as $number) {
             echo $number . '  ';
         }
-        
         ?>
     </div>
     
