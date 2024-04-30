@@ -32,6 +32,47 @@ function printMatches($teamMatches) {
         echo '<h5>' . $key . '</h5>' . $value['homeTeam'] . ' - ' . $value['guestTeam'] . '<br>' . ' ' . $value['homeGoals'] . ' - ' . $value['guestGoals'];
     }
 }
+
+// snack 3 array
+$posts = [
+    '10/01/2019' => [
+        [
+            'title' => 'Post 1',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 1'
+        ],
+        [
+            'title' => 'Post 2',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 2'
+        ],
+    ],
+    '10/02/2019' => [
+        [
+            'title' => 'Post 3',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 3'
+        ]
+    ],
+    '15/05/2019' => [
+        [
+            'title' => 'Post 4',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 4'
+        ],
+        [
+            'title' => 'Post 5',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 5'
+        ],
+        [
+            'title' => 'Post 6',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 6'
+        ]
+    ],
+];
+
 ?>
 
 <!DOCTYPE html>
@@ -49,6 +90,7 @@ function printMatches($teamMatches) {
 
 
 <body>
+    <!-- Snack 1 -->
     <div class="container text-center" >
         <h1>
             Snack 1
@@ -61,7 +103,7 @@ function printMatches($teamMatches) {
             <?php printMatches($teamMatches) ?>
         </p>
     </div>
-
+    <!-- Snack 2 -->
     <div class="container text-center w-50">
         <h2> Snack 2 </h2>
         <p>
@@ -77,14 +119,22 @@ function printMatches($teamMatches) {
             </button>
         </form>
             <?php 
+                // checking if all the fields are filled
                 if (empty($_GET['nome']) || empty($_GET['email']) || empty($_GET['eta'])) {
                     echo 'Compila tutti i campi';
-                } elseif (isset($_GET['nome']) && isset($_GET['email']) && isset($_GET['eta'])) {
-                    echo 'Accesso riuscito'; 
-                } if (!empty($_GET['nome']) && !empty($_GET['email']) && !empty($_GET['eta'])) {
+                } else if (strlen($_GET['nome']) < 3 || !strpos($_GET['email'], '@') || !strpos($_GET['email'], '.') || !is_numeric($_GET['eta'])) {
                     echo 'Accesso negato';
+                } else {
+                    echo 'Accesso riuscito';
                 }
             ?>
+    </div>
+    <!-- Snack 3 -->
+    <div>
+        <h2> Snack 3 </h2>
+        <p>
+        Creare un array di array. Ogni array figlio avrà come chiave una data in questo formato: DD-MM-YYYY es 01-01-2007 e come valore un array di post associati a quella data. Stampare ogni data con i relativi post.
+        </p>
     </div>
 
     
