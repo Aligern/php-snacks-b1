@@ -172,7 +172,13 @@ function getArrayOfIntegers($min, $max, $itemsArray) {
         Creare un array con 15 numeri casuali, tenendo conto che l'array non dovrà contenere lo stesso numero più di una volta
         </p>
         <br>
-        <?php  print_r(getArrayOfIntegers(1, 100, 15))?>
+        <?php  
+        $randomNumbers = getArrayOfIntegers(1, 100, 15);
+        foreach ($randomNumbers as $number) {
+            echo $number . '  ';
+        }
+        
+        ?>
     </div>
     
 </body>
