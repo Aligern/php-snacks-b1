@@ -242,7 +242,7 @@ function printStudents($students) {
             </button>
         </form>
             <?php 
-                echo printForm($form);
+                printForm($form);
             ?>
     </div>
     <!-- Snack 3 -->
