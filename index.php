@@ -34,12 +34,12 @@ function printMatches($teamMatches) {
 }
 ######################################## end snack 1 ########################################
 
-// snack 2 
+// snack 2 function
 $form = '';
 function printForm($form) {
     if (empty($_GET['nome']) || empty($_GET['email']) || empty($_GET['eta'])) {
         echo 'Compila tutti i campi';
-    } else if (strlen($_GET['nome']) < 3 || !strpos($_GET['email'], '@') || !strpos($_GET['email'], '.') || !is_numeric($_GET['eta'])) {
+    } else if (strlen($_GET['nome']) < 3 || is_numeric($_GET['nome']) || !strpos($_GET['email'], '@') || !strpos($_GET['email'], '.') || !is_numeric($_GET['eta'])) {
         echo 'Accesso negato';
     } else {
         echo 'Accesso riuscito';
@@ -97,7 +97,6 @@ function printPosts($posts) {
 }
 ###################################### end snack 3 ########################################
 
-
 // snack 4 function
 function getArrayOfIntegers($min, $max, $itemsArray) {
     $numbersArray = [];
@@ -115,7 +114,6 @@ function getArrayOfIntegers($min, $max, $itemsArray) {
 $paragraphs = 'In un videogioco come Fallout le scelte del videogiocatore sono fondamentali: condizionano la creazione del personaggio, la sua indole, le quest secondarie e quella principale; possono determinare addirittura quali NPC incontrerà sul suo percorso. Nella serie tv, disponibile su Prime Video, questa cosa non c\'è. Ed è normale. Ed è anche giusto. Ma Graham Wagner e Geneva Robertson-Dworet, i due creatori-sceneggiatori, sono riusciti a costruire un mondo coerente, non così diverso da quello della saga di Bethesda, e a filare delle trame verticali capaci di intrecciarsi proprio come se ci fosse qualcuno, davanti alla tv, a prendere delle decisioni.';
 
 $paragraph = explode('. ', $paragraphs);
-
 ###################################### end snack 5 ########################################
 
 // snack 6 array
@@ -141,7 +139,7 @@ $db = [
         ]
     ]
 ];
-
+// snack 6 function
 function printTeachers($db) {
     foreach ($db as $key => $value) {
         if ($key == 'teachers') {
@@ -152,7 +150,7 @@ function printTeachers($db) {
         } 
     }
 }
-
+// snack 6 function
 function printPm($db) {
     foreach ($db as $key => $value) {
         if ($key == 'pm') {
@@ -250,14 +248,13 @@ function printStudents($students) {
         </p>
         <form action="index.php" method="GET" class="d-flex flex-column">
             <input type="text" placeholder="Nome" name="nome">
-            <input type="email" placeholder="Email" name="email">
+            <input type="text" placeholder="Email" name="email">
             <input type="text" placeholder="Eta" name="eta">
             <button type="submit">
                 Invia
             </button>
         </form>
             <?php 
-                // checking if all the fields are filled
                 echo printForm($form);
             ?>
     </div>
