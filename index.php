@@ -29,10 +29,23 @@ $teamMatches = [
 // the function that prints the matches
 function printMatches($teamMatches) {
     foreach ($teamMatches as $key => $value) {
-        echo '<h5>' . $key . '</h5>' . $value['homeTeam'] . ' - ' . $value['guestTeam'] . '<br>' . ' ' . $value['homeGoals'] . ' - ' . $value['guestGoals'];
+        echo '<h5>' . $key . '</h5>' . $value['homeTeam'] . ' - ' . $value['guestTeam'] . ' | ' . $value['homeGoals'] . ' - ' . $value['guestGoals'];
     }
 }
 ######################################## end snack 1 ########################################
+
+// snack 2 
+$form = '';
+function printForm($form) {
+    if (empty($_GET['nome']) || empty($_GET['email']) || empty($_GET['eta'])) {
+        echo 'Compila tutti i campi';
+    } else if (strlen($_GET['nome']) < 3 || !strpos($_GET['email'], '@') || !strpos($_GET['email'], '.') || !is_numeric($_GET['eta'])) {
+        echo 'Accesso negato';
+    } else {
+        echo 'Accesso riuscito';
+    }
+}
+######################################## end snack 2 ########################################
 
 // snack 3 array
 $posts = [
@@ -158,8 +171,8 @@ $students = [
            'name' => 'Nicola',
            'lastname' => 'Filannino',
            'voti' => [
-            'storia' => '7',
-            'matematica' => '6',
+            'storia' => '8',
+            'matematica' => '9',
            ]
        ],
        [
@@ -182,12 +195,13 @@ $students = [
         'name' => 'Samuele',
             'lastname' => 'Scavello',
             'voti' => [
-             'storia' => '8',
-             'matematica' => '10',
+             'storia' => '4',
+             'matematica' => '6',
         ]
     ]
 ];
 
+// we use array_sum and count to calculate the average votes of each student
 function printStudents($students) {
     foreach ($students as $student) {
         $media = array_sum($student['voti']) / count($student['voti']);
@@ -244,13 +258,7 @@ function printStudents($students) {
         </form>
             <?php 
                 // checking if all the fields are filled
-                if (empty($_GET['nome']) || empty($_GET['email']) || empty($_GET['eta'])) {
-                    echo 'Compila tutti i campi';
-                } else if (strlen($_GET['nome']) < 3 || !strpos($_GET['email'], '@') || !strpos($_GET['email'], '.') || !is_numeric($_GET['eta'])) {
-                    echo 'Accesso negato';
-                } else {
-                    echo 'Accesso riuscito';
-                }
+                echo printForm($form);
             ?>
     </div>
 
@@ -261,7 +269,9 @@ function printStudents($students) {
          Creare un array di array. Ogni array figlio avrà come chiave una data in questo formato: DD-MM-YYYY es 01-01-2007 e come valore un array di post associati a quella data. Stampare ogni data con i relativi post.
         </p>
         <br>
-        <?php printPosts($posts) ?>
+        <?php 
+        printPosts($posts) 
+        ?>
 
     </div>
 
