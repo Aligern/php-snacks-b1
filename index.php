@@ -33,7 +33,6 @@ function printMatches($teamMatches) {
     }
 }
 ######################################## end snack 1 ########################################
-
 // snack 2 function
 $form = '';
 function printForm($form) {
@@ -46,7 +45,6 @@ function printForm($form) {
     }
 }
 ######################################## end snack 2 ########################################
-
 // snack 3 array
 $posts = [
     '10/01/2019' => [
@@ -96,7 +94,6 @@ function printPosts($posts) {
     }
 }
 ###################################### end snack 3 ########################################
-
 // snack 4 function
 function getArrayOfIntegers($min, $max, $itemsArray) {
     $numbersArray = [];
@@ -109,13 +106,10 @@ function getArrayOfIntegers($min, $max, $itemsArray) {
     return $numbersArray;
 }
 ###################################### end snack 4 ########################################
-
 // snack 5 here
 $paragraphs = 'In un videogioco come Fallout le scelte del videogiocatore sono fondamentali: condizionano la creazione del personaggio, la sua indole, le quest secondarie e quella principale; possono determinare addirittura quali NPC incontrerà sul suo percorso. Nella serie tv, disponibile su Prime Video, questa cosa non c\'è. Ed è normale. Ed è anche giusto. Ma Graham Wagner e Geneva Robertson-Dworet, i due creatori-sceneggiatori, sono riusciti a costruire un mondo coerente, non così diverso da quello della saga di Bethesda, e a filare delle trame verticali capaci di intrecciarsi proprio come se ci fosse qualcuno, davanti alla tv, a prendere delle decisioni.';
-
 $paragraph = explode('. ', $paragraphs);
 ###################################### end snack 5 ########################################
-
 // snack 6 array
 $db = [
     'teachers' => [
@@ -162,7 +156,6 @@ function printPm($db) {
     }
 }
 ###################################### end snack 6 ########################################
-
 // snack 7 here
 $students = [
        [
@@ -198,7 +191,6 @@ $students = [
         ]
     ]
 ];
-
 // we use array_sum and count to calculate the average votes of each student
 function printStudents($students) {
     foreach ($students as $student) {
@@ -207,7 +199,6 @@ function printStudents($students) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -219,18 +210,15 @@ function printStudents($students) {
         PhP Snacks 1
     </title>
 </head>
-
 <body>
     <h1 class="text-center"> 
         PhP Snacks 
     </h1>
-
     <!-- Snack 1 -->
     <div class="container text-center" >
         <h2>
             Snack 1
         </h2>
-        
         <p>
         Creiamo un array contenente le partite di basket di un' ipotetica tappa del calendario. Ogni array avrà una squadra di casa e una squadra ospite, punti fatti dalla squadra di casa e punti fatti dalla squadra ospite.
         <br>
@@ -238,7 +226,6 @@ function printStudents($students) {
             <?php printMatches($teamMatches) ?>
         </p>
     </div>
-
     <!-- Snack 2 -->
     <div class="container text-center w-50">
         <h2> Snack 2 </h2>
@@ -258,7 +245,6 @@ function printStudents($students) {
                 echo printForm($form);
             ?>
     </div>
-
     <!-- Snack 3 -->
     <div class="container text-center">
         <h2> Snack 3 </h2>
@@ -269,9 +255,7 @@ function printStudents($students) {
         <?php 
         printPosts($posts) 
         ?>
-
     </div>
-
     <!-- snack 4 -->
     <div class="container text-center">
         <h2> Snack 4 </h2>
@@ -286,24 +270,20 @@ function printStudents($students) {
         }
         ?>
     </div>
-
     <!-- snack 5 -->
     <div class="container text-center">
         <h2> Snack 5 </h2>
         <p>
         Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi. Ogni punto un nuovo paragrafo.
         </p>
-
         <p>
         <?php 
         for ($i = 0; $i < count($paragraph); $i++) {
             echo $paragraph[$i];
         }
         ?> 
-        
         </p>
     </div>
-
     <!-- snack 6 -->
     <div class="container text-center pb-5">
         <h2> Snack 6 </h2>
@@ -316,7 +296,6 @@ function printStudents($students) {
                 printTeachers($db); 
                 ?>
             </div>
-
             <div class="box green m-2 p-3">
                 <?php 
                 printPm($db); 
@@ -324,7 +303,6 @@ function printStudents($students) {
             </div>
         </div>
     </div>
-
     <!-- snack 7 -->
     <div class="container text-center">
         <h2> Snack 7 </h2>
@@ -336,7 +314,6 @@ function printStudents($students) {
             printStudents($students);
             ?>
         </p>
-
     </div>
 </body>
 </html>
